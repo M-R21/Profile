@@ -1,0 +1,22 @@
+import csv
+import random
+
+# Define the column names
+columns = ['name', 'value', 'age']
+
+# Generate random data for each row
+data = []
+for _ in range(110):
+    name = ''.join(random.choices('abcdefghijklmnopqrstuvwxyz', k=5))
+    value = random.randint(1, 100)
+    age = random.randint(18, 65)
+    data.append([name, value, age])
+
+# Write the data to a CSV file
+filename = '/home/shadow21/Projects/Profile/sample.csv'
+with open(filename, 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(columns)
+    writer.writerows(data)
+
+print(f"CSV file '{filename}' has been generated.")
